@@ -16,6 +16,7 @@ import ClearIcon from "@material-ui/icons/Clear";
 const useStyles = makeStyles({
   root: {
     boxShadow: "none",
+    position: "inherit",
   },
 });
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./App.css";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Header from "./Components/Header";
@@ -18,32 +18,13 @@ const theme = createMuiTheme({
 });
 
 function App() {
-  const [items, setItems] = useState([]);
-  const [genres, setGenres] = useState([]);
-
-  useEffect(() => {
-    const fetchItems = async () => {
-      await fetch(`https://shikimori.org/api/animes?limit=50&order=ranked`)
-        .then((res) => res.json())
-        .then((data) => setItems(data));
-    };
-
-    const fetchGenres = async () => {
-      await fetch(`https://shikimori.org/api/genres`)
-        .then((res) => res.json())
-        .then((data) => setGenres(data));
-    };
-    fetchItems();
-    fetchGenres();
-  }, []);
-
   return (
     <div className="App">
       <CssBaseline>
         <MuiThemeProvider theme={theme}>
           <Header />
-          <Filters genres={genres} />
-          <Content items={items} />
+          <Filters />
+          <Content />
         </MuiThemeProvider>
       </CssBaseline>
     </div>

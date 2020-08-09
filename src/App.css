@@ -1,6 +1,5 @@
 a {
   text-decoration: none;
-
 }
 
 .main-menu {
@@ -13,7 +12,6 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-
 }
 
 .filters-main {
@@ -26,6 +24,7 @@ a {
 .content-section {
   max-width: 1040px !important;
   margin: 0 auto;
+  text-align: center;
 }
 
 .gallery {

@@ -29,23 +29,8 @@ const MenuProps = {
   },
 };
 
-const names = [
-  "Oliver Hansen",
-  "Van Henry",
-  "April Tucker",
-  "Ralph Hubbard",
-  "Omar Alexander",
-  "Carlos Abbott",
-  "Miriam Wagner",
-  "Bradley Wilkerson",
-  "Virginia Andrews",
-  "Kelly Snyder",
-];
-
 const Filter = (props) => {
-  const { title, items } = props;
-
-  console.log(items)
+  const { items } = props;
 
   const classes = useStyles();
   const [personName, setPersonName] = React.useState([]);
@@ -53,7 +38,6 @@ const Filter = (props) => {
   const handleChange = (event) => {
     setPersonName(event.target.value);
   };
-
   return (
     <FormControl className={classes.formControl}>
       <InputLabel id="demo-mutiple-checkbox-label">{props.title}</InputLabel>
@@ -67,12 +51,13 @@ const Filter = (props) => {
         renderValue={(selected) => `Выбрано ${selected.length}`}
         MenuProps={MenuProps}
       >
-        {names.map((name) => (
-          <MenuItem key={name} value={name}>
-            <Checkbox checked={personName.indexOf(name) > -1} />
-            <ListItemText primary={name} />
-          </MenuItem>
-        ))}
+        {items &&
+          items.map((item) => (
+            <MenuItem key={item.id} value={item.id}>
+              <Checkbox checked={personName.indexOf(item.id) > -1} />
+              <ListItemText primary={item.russian} />
+            </MenuItem>
+          ))}
       </Select>
     </FormControl>
   );
